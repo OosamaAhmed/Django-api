@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Login {% endblock%}
+
+{% block maincontent %}
+<h1> Login </h1>
+<form method="post" enctype="multipart/form-data" class="text-light">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script src="{% static 'productapp/js/script.js' %}"> </script>
+
+{% endblock %}

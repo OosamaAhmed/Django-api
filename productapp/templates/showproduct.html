@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} {{myproducts.name}} {% endblock %}
+{% block maincontent %}
+<div class="container-fluid">
+  <div class="card bg-dark p-1">
+      <div class=" row text-light  d-flex  justify-content-center"> 
+        <div class=" text-center col-5 m-2">
+          <img src="{{myproducts.get_image_url}}" alt="{{myproducts.get_image_url}}" class="m-0 w-100 rounded-5">
+        </div>
+        <div class="col-5 m-2 mt-4">
+
+          <h5 class="card-title bg-danger text-light text-center rounded-5 p-2">{{myproducts.name}}</h5>
+          
+          <p class="card-text text-center fs-2"> {{myproducts.description}} </p>
+          <p class="card-text text-center"> price : {{myproducts.price}} </p>
+          <div class=" text-light text-center">
+            <h5>
+              Category
+            </h5>
+            {% for p in myproducts.category.category_posts.all %}
+            {% if p.id != myproducts.id %}
+            <a class="btn btn-outline-light" href="{% url 'show' p.id %}">{{p}} </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+            <div class="row d-flex justify-content-center m-3" >
+              <a href="{% url 'edit' myproducts.id %}" class="btn btn-outline-danger text-center  w-50 col-3">Edit this product</a>
+              <a href="{% url 'delete' myproducts.id %}" class="btn btn-outline-danger text-center  w-50 col-3">Delete this product</a>
+            </div>
+          <a href="{% url 'home' %}" class="btn btn-primary w-100 mt-3 mb-4">back</a>
+
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

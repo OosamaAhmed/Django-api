@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Home Page {% endblock %}
+{% block maincontent %}
+<div class="">
+    <div class="row d-flex ">
+        {% for x in myproducts %}
+        <div class=" col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <div class="card m-2 bg-dark-subtle ">
+                <img src="{{x.get_image_url}}" alt="{{x.get_image_url}}" class="m-0 w-100 rounded"
+                    style="height: 120px;">
+                <div class="card-body">
+                    <h5 class="card-title bg-danger text-light text-center rounded-5 p-2">{{x.name}}</h5>
+                    <p class="card-text"> price : {{x.price}} </p>
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'show' x.id %}" class="btn btn-outline-danger text-center w-100">Show</a>
+                      
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

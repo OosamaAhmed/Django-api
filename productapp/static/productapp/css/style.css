@@ -1,0 +1,13 @@
+/* making style to my all page in css file  */
+/* 
+1--> first you should made static directory in your app next to templates folder 
+ 
+2--> making three different directories in this folder and make your styles in css folder 
+
+3--> make a link to this folder in your app in  file base html 
+
+the same thing when  you add image or js files to your app 
+*/
+/* body{
+    background-color: rgba(0, 0, 0, 0.7);
+} */

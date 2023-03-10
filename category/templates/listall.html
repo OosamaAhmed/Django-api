@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}All Categories {% endblock %}
+
+{% block maincontent %}
+
+<a href="{% url 'category.create' %}" class="btn btn-primary"> Create new Category </a>
+<table class="table text-light m-4">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Show</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+    {% for cat in object_list %}
+    <tr>
+      <td> {{cat.id}}</td>
+      <td> {{cat.name}}</td>
+      <td> {{cat.description}}</td>
+      <td> <a href="{%url 'category.show' cat.id %}" class="btn btn-info"> Show</a></td>
+      <td> <a href="{%url 'category.edit' cat.id %}" class="btn btn-warning"> Edit</a></td>
+      <td> <a href="{%url 'category.delete' cat.id %}" class="btn btn-danger"> Delete</a></td>
+
+    </tr>
+    {% endfor %}
+
+  </thead>
+
+</table>
+
+{% endblock %}
